@@ -1,0 +1,112 @@
+[
+  {
+    "asset_id": "LN-CORP-101",
+    "name": "Syndicated Senior Term Loan - Apex Industrial Group",
+    "asset_type": "Commercial Loan",
+    "par_value_usd": 150000000,
+    "rating": "BBB+",
+    "duration_yrs": 4.2,
+    "coupon_pct": 6.85,
+    "sector": "Industrial",
+    "collateral": "First Lien Fixed & Floating Assets"
+  },
+  {
+    "asset_id": "LN-CRE-102",
+    "name": "Commercial Real Estate Facility - Metro Plaza Trust",
+    "asset_type": "Commercial Loan",
+    "par_value_usd": 120000000,
+    "rating": "BB",
+    "duration_yrs": 3.8,
+    "coupon_pct": 7.90,
+    "sector": "Real Estate",
+    "collateral": "Prime Urban Commercial Office Complex"
+  },
+  {
+    "asset_id": "LN-TECH-103",
+    "name": "Revolving Credit Line - Silicon Cloud Infrastructure",
+    "asset_type": "Commercial Loan",
+    "par_value_usd": 130000000,
+    "rating": "A-",
+    "duration_yrs": 2.5,
+    "coupon_pct": 5.95,
+    "sector": "Technology",
+    "collateral": "Receivables & Enterprise Cloud IP"
+  },
+  {
+    "asset_id": "BND-IG-201",
+    "name": "Investment Grade Corporate Bond - Global Logistics Corp",
+    "asset_type": "Corporate Bond",
+    "par_value_usd": 200000000,
+    "rating": "A+",
+    "duration_yrs": 6.5,
+    "coupon_pct": 5.20,
+    "sector": "Logistics & Transport",
+    "collateral": "Senior Unsecured"
+  },
+  {
+    "asset_id": "BND-HY-202",
+    "name": "High Yield Bond - Vanguard Telecom Services",
+    "asset_type": "Corporate Bond",
+    "par_value_usd": 150000000,
+    "rating": "B+",
+    "duration_yrs": 5.1,
+    "coupon_pct": 8.75,
+    "sector": "Telecommunications",
+    "collateral": "Senior Subordinated"
+  },
+  {
+    "asset_id": "SOV-TRS-301",
+    "name": "US 10-Year Benchmark Treasury Notes",
+    "asset_type": "Sovereign Bond",
+    "par_value_usd": 150000000,
+    "rating": "AAA",
+    "duration_yrs": 8.2,
+    "coupon_pct": 4.10,
+    "sector": "Sovereign Debt",
+    "collateral": "Full Faith and Credit of US Government"
+  },
+  {
+    "asset_id": "SOV-MUN-302",
+    "name": "European Sovereign Gilt & Bund Portfolio",
+    "asset_type": "Sovereign Bond",
+    "par_value_usd": 100000000,
+    "rating": "AAA",
+    "duration_yrs": 7.4,
+    "coupon_pct": 3.45,
+    "sector": "Sovereign Debt",
+    "collateral": "Eurozone Sovereign Guarantee"
+  },
+  {
+    "asset_id": "SWP-IRS-401",
+    "name": "Interest Rate Swaps (Payer 5Y SOFR vs Fixed 3.95%)",
+    "asset_type": "Derivatives",
+    "par_value_usd": 90000000,
+    "rating": "AA-",
+    "duration_yrs": 4.8,
+    "coupon_pct": 3.95,
+    "sector": "Financial Hedging",
+    "collateral": "ISDA Two-Way CSA Cash Margin"
+  },
+  {
+    "asset_id": "SWP-CDS-402",
+    "name": "Credit Default Swap Basket (CDX North America IG)",
+    "asset_type": "Derivatives",
+    "par_value_usd": 60000000,
+    "rating": "A",
+    "duration_yrs": 3.0,
+    "coupon_pct": 1.15,
+    "sector": "Credit Derivative",
+    "collateral": "Variation Margin Cleared via LCH"
+  },
+  {
+    "asset_id": "EQ-FAC-501",
+    "name": "Mezzanine Structured Equity & Convertible Notes",
+    "asset_type": "Wholesale Equity",
+    "par_value_usd": 100000000,
+    "rating": "BBB-",
+    "duration_yrs": 3.5,
+    "coupon_pct": 9.20,
+    "sector": "Diversified Corporate",
+    "collateral": "Second Lien / Equity Warrants"
+  }
+]

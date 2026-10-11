@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FINRISK-AI | Unified AI/NLP Risk Engine & Portfolio Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- TOP TELEMETRY NAVBAR -->
+  <header class="app-header">
+    <div class="header-left">
+      <div class="logo-badge">
+        <div class="pulse-dot"></div>
+        <span class="logo-title">FINRISK<span class="highlight">.AI</span></span>
+      </div>
+      <div class="terminal-tag">RISK INTELLIGENCE ENGINE v2.4</div>
+    </div>
+
+    <div class="header-stats">
+      <div class="stat-pill">
+        <span class="pill-label">ENGINE STATUS</span>
+        <span class="pill-val status-live"><span class="blink">●</span> LIVE OPERATIONAL</span>
+      </div>
+      <div class="stat-pill">
+        <span class="pill-label">INGESTION SOURCES</span>
+        <span class="pill-val">NEWS API + TWITTER/X</span>
+      </div>
+      <div class="stat-pill">
+        <span class="pill-label">WHOLESALE AUM</span>
+        <span class="pill-val text-cyan">$1,250,000,000</span>
+      </div>
+      <div class="stat-pill">
+        <span class="pill-label">INDEX UNIVERSE</span>
+        <span class="pill-val text-amber">10 S&P EQUITIES</span>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <button class="btn btn-primary" id="btn-open-slides">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        7-Slide Presentation
+      </button>
+    </div>
+  </header>
+
+  <!-- NAVIGATION TABS -->
+  <nav class="nav-bar">
+    <div class="nav-tabs">
+      <button class="nav-tab active" data-tab="tab-overview">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Command Center
+      </button>
+      <button class="nav-tab" data-tab="tab-nlp">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        NLP Risk Engine
+      </button>
+      <button class="nav-tab" data-tab="tab-module-a">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        Module A: Tactical Rebalancer
+      </button>
+      <button class="nav-tab" data-tab="tab-module-b">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Module B: Stress Testing
+      </button>
+      <button class="nav-tab" data-tab="tab-api">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        API & JSON Signals
+      </button>
+    </div>
+
+    <!-- STREAM CONTROLS -->
+    <div class="stream-controls">
+      <button class="btn btn-sm btn-outline" id="btn-stream-toggle">
+        <span class="stream-icon">▶</span> <span id="stream-btn-text">Auto Stream Feed</span>
+      </button>
+      <button class="btn btn-sm btn-outline" id="btn-next-item">
+        Next Event ➔
+      </button>
+    </div>
+  </nav>
+
+  <!-- MAIN VIEWPORT CONTAINER -->
+  <main class="main-content">
+
+    <!-- ================= TAB 1: COMMAND CENTER ================= -->
+    <section class="tab-pane active" id="tab-overview">
+      <div class="grid-layout overview-grid">
+        
+        <!-- Live Ingestion Stream Panel -->
+        <div class="card card-feed">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="icon-indicator">⚡</span> Real-Time Multi-Source Ingestion
+            </div>
+            <div class="feed-filters">
+              <button class="filter-btn active" data-filter="all">All</button>
+              <button class="filter-btn" data-filter="news">News (GDELT)</button>
+              <button class="filter-btn" data-filter="social">Twitter/X</button>
+            </div>
+          </div>
+          <div class="card-body feed-container" id="overview-feed-list">
+            <!-- Dynamic Feed Items -->
+          </div>
+        </div>
+
+        <!-- Latest Risk Signal Card -->
+        <div class="card card-signal">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="icon-indicator">🎯</span> Active Risk Signal Telemetry
+            </div>
+            <span class="badge badge-pulse" id="latest-signal-id">SIG-WAITING</span>
+          </div>
+          <div class="card-body">
+            <div class="signal-headline" id="active-signal-headline">
+              "Ingesting market data stream. Select or inject an event to generate real-time signals."
+            </div>
+            <div class="signal-meta-row">
+              <div class="meta-tag" id="active-signal-source">Source: NewsAPI / GDELT</div>
+              <div class="meta-tag" id="active-signal-entity">Target: General Market</div>
+            </div>
+
+            <!-- 3 Core NLP Output Gauges -->
+            <div class="gauges-row">
+              <!-- Sentiment Score Gauge -->
+              <div class="gauge-card">
+                <div class="gauge-title">SENTIMENT SCORE (-1.0 to +1.0)</div>
+                <div class="gauge-value" id="disp-sentiment">0.00</div>
+                <div class="gauge-sub" id="disp-sentiment-label">NEUTRAL</div>
+                <div class="meter-bar-container">
+                  <div class="meter-bar sentiment-bar" id="meter-sentiment"></div>
+                </div>
+              </div>
+
+              <!-- Event Classification -->
+              <div class="gauge-card">
+                <div class="gauge-title">EVENT CLASSIFICATION</div>
+                <div class="event-badge" id="disp-event">Macroeconomic</div>
+                <div class="gauge-sub">Categorical Taxonomy</div>
+                <div class="event-confidence">Confidence: 94.2%</div>
+              </div>
+
+              <!-- Impact Score Gauge -->
+              <div class="gauge-card">
+                <div class="gauge-title">PREDICTED IMPACT SCORE (1-10)</div>
+                <div class="gauge-value text-amber" id="disp-impact">5.0<span class="gauge-max">/10</span></div>
+                <div class="gauge-sub" id="disp-impact-label">MODERATE SEVERITY</div>
+                <div class="meter-bar-container">
+                  <div class="meter-bar impact-bar" id="meter-impact"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Downstream Auto-Trigger Banner -->
+            <div class="trigger-alert" id="downstream-trigger-banner">
+              <span class="trigger-icon">ℹ️</span>
+              <span id="downstream-trigger-text">Awaiting market event to route to Module A & Module B.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module A Mini Preview -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="icon-indicator">⚖️</span> Module A: Dynamic Weights Snapshot
+            </div>
+            <button class="link-btn" onclick="switchTab('tab-module-a')">View Full Rebalancer ➔</button>
+          </div>
+          <div class="card-body">
+            <div class="mini-weight-bars" id="mini-weights-container">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Module B Mini Preview -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="icon-indicator">🛡️</span> Module B: Wholesale Banking Stress Status
+            </div>
+            <button class="link-btn" onclick="switchTab('tab-module-b')">Launch Stress Tool ➔</button>
+          </div>
+          <div class="card-body">
+            <div class="stress-summary-row">
+              <div class="stress-kpi">
+                <span class="kpi-label">TOTAL WHOLESALE AUM</span>
+                <span class="kpi-val">$1,250.0M</span>
+              </div>
+              <div class="stress-kpi">
+                <span class="kpi-label">POST-STRESS VALUE</span>
+                <span class="kpi-val text-red" id="mini-post-stress">$1,138.4M</span>
+              </div>
+              <div class="stress-kpi">
+                <span class="kpi-label">VALUE AT RISK (EST. LOSS)</span>
+                <span class="kpi-val text-red" id="mini-stress-loss">-$111.6M (-8.9%)</span>
+              </div>
+            </div>
+            <div class="stress-trigger-info">
+              High-impact threshold: <strong class="text-amber">Impact Score &gt; 7.0</strong> (Automated wholesale stress simulation).
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= TAB 2: AI/NLP RISK ENGINE ================= -->
+    <section class="tab-pane" id="tab-nlp">
+      <div class="grid-layout nlp-grid">
+        
+        <!-- Interactive Text Analyzer & Simulator -->
+        <div class="card card-nlp-input">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="icon-indicator">✍️</span> Live Text Ingestion & Custom Event Analyzer
+            </div>
+            <span class="badge">FINBERT / LM LEXICON</span>
+          </div>
+          <div class="card-body">
+            <p class="section-desc">
+              Test ANY real-time financial news headline or social media post. The engine parses the unstructured text, classifies the event type, extracts financial entities, evaluates sentiment polarity, and predicts market impact severity.
+            </p>
+
+            <div class="input-group">
+              <label for="custom-text-input">Raw Unstructured Text Input:</label>
+              <textarea id="custom-text-input" rows="4" placeholder="Enter financial news headline or social media post (e.g. 'NVIDIA surges on blowout earnings and unprecedented AI data center demand...')" class="custom-textarea"></textarea>
+            </div>
+
+            <div class="source-select-row">
+              <div>
+                <label>Source Type:</label>
+                <select id="custom-source-select" class="custom-select">
+                  <option value="Financial News (Reuters / GDELT)">Financial News (Reuters / GDELT Project)</option>
+                  <option value="Financial News (Bloomberg)">Financial News (Bloomberg / Dow Jones)</option>
+                  <option value="Twitter/X Financial Stream">Twitter/X Financial Cashtag Stream</option>
+                  <option value="SEC Regulatory Filing / 8-K">SEC Regulatory Filing / 8-K Feed</option>
+                </select>
+              </div>
+              <button class="btn btn-primary" id="btn-analyze-custom">
+                ⚡ Run NLP Risk Engine
+              </button>
+            </div>
+
+            <div class="presets-section">
+              <div class="presets-label">Quick Scenario Presets:</div>
+              <div class="presets-buttons">
+                <button class="btn btn-xs preset-btn" data-preset="nvda">🚀 NVDA AI Breakthrough</button>
+                <button class="btn btn-xs preset-btn" data-preset="fed">📉 Fed Hawkish Rate Spike</button>
+                <button class="btn btn-xs preset-btn" data-preset="cre">🏢 Euro CRE Syndication Default</button>
+                <button class="btn btn-xs preset-btn" data-preset="geo">🚢 Strait Tanker Naval Blockade</button>
+                <button class="btn btn-xs preset-btn" data-preset="tsla">⚠️ TSLA EV Deliveries Miss</button>
+                <button class="btn btn-xs preset-btn" data-preset="aapl">⚖️ Apple DOJ Antitrust Remedy</button>
+                <button class="btn btn-xs preset-btn" data-preset="xom">🛢️ Exxon Mega-Merger Deal</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Real-time Structured Signal Output Card -->
+        <div class="card card-nlp-output">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="icon-indicator">📊</span> Generated Machine-Readable Risk Signal
+            </div>
+            <button class="btn btn-sm btn-outline" id="btn-copy-json">Copy JSON</button>
+          </div>
+          <div class="card-body">
+            
+            <div class="nlp-results-grid">
+              <div class="result-tile">
+                <div class="tile-label">SENTIMENT SCORE</div>
+                <div class="tile-value" id="nlp-res-sentiment">+0.88</div>
+                <div class="tile-bar"><div class="bar-fill" id="nlp-res-sentiment-bar" style="width: 88%; background: var(--green);"></div></div>
+                <div class="tile-desc">Range: -1.00 (Extreme Bearish) to +1.00 (Extreme Bullish)</div>
+              </div>
+
+              <div class="result-tile">
+                <div class="tile-label">EVENT CLASSIFICATION</div>
+                <div class="tile-value text-cyan" id="nlp-res-event">Product Launch</div>
+                <div class="tile-sub" id="nlp-res-category">Enterprise Hardware</div>
+                <div class="tile-desc">Identified from 7 financial event taxonomies</div>
+              </div>
+
+              <div class="result-tile">
+                <div class="tile-label">PREDICTED IMPACT SCORE</div>
+                <div class="tile-value text-amber" id="nlp-res-impact">8.5 / 10</div>
+                <div class="tile-bar"><div class="bar-fill" id="nlp-res-impact-bar" style="width: 85%; background: var(--amber);"></div></div>
+                <div class="tile-desc">Severity calibrated against liquidity & volatility</div>
+              </div>
+
+              <div class="result-tile">
+                <div class="tile-label">TARGET ENTITY & SECTOR</div>
+                <div class="tile-value text-purple" id="nlp-res-entity">NVDA (NVIDIA Corp.)</div>
+                <div class="tile-sub">Semiconductors / Technology</div>
+                <div class="tile-desc">NER mapped to S&P Stock Universe</div>
+              </div>
+            </div>
+
+            <!-- Machine-Readable JSON Code Block -->
+            <div class="code-container">
+              <div class="code-header">OUTPUT JSON (REST API / FILE STREAM):</div>
+              <pre><code id="nlp-json-output">{ "status": "awaiting_input" }</code></pre>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= TAB 3: MODULE A: TACTICAL REBALANCER ================= -->
+    <section class="tab-pane" id="tab-module-a">
+      <div class="module-banner">
+        <div>
+          <h2>MODULE A: Tactical High-Frequency Stock Index Rebalancer</h2>
+          <p>Subscribes to sentiment scores from the AI/NLP Risk Engine to dynamically rebalance a mock 10-stock S&P index in real time.</p>
+        </div>
+        <div class="banner-actions">
+          <button class="btn btn-primary" id="btn-rebalance-now">⚡ Execute Rebalance Cycle</button>
+          <button class="btn btn-outline" id="btn-reset-weights">Reset to Baseline</button>
+        </div>
+      </div>
+
+      <div class="grid-layout rebalance-grid">
+        <!-- Stock Weight Distribution Cards -->
+        <div class="card card-weights">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="icon-indicator">📊</span> Dynamic Weight Allocations (Sum = 100%)
+            </div>
+            <span class="badge">ACTIVE WEIGHT MATRIX</span>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="data-table" id="weights-table">
+                <thead>
+                  <tr>
+                    <th>Ticker</th>
+                    <th>Company</th>
+                    <th>Sector</th>
+                    <th>Base Wt</th>
+                    <th>Current Wt</th>
+                    <th>Delta</th>
+                    <th>Sentiment</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="weights-table-body">
+                  <!-- Populated dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Performance / Alpha Comparison Chart -->
+        <div class="card card-performance">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="icon-indicator">📈</span> Cumulative Returns: Sentiment-Rebalanced vs Equal-Weight Benchmark
+            </div>
+            <div class="perf-stats">
+              <span class="stat-badge text-green">Alpha: +4.82%</span>
+              <span class="stat-badge">Sharpe: 1.84</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="canvas-container">
+              <canvas id="rebalance-chart" width="600" height="260"></canvas>
+            </div>
+            <div class="chart-legend">
+              <div class="legend-item"><span class="legend-dot dot-green"></span> Sentiment-Driven Rebalanced Index</div>
+              <div class="legend-item"><span class="legend-dot dot-gray"></span> Equal-Weight S&P Benchmark</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rebalance Order Execution Audit Log -->
+        <div class="card card-audit full-width">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="icon-indicator">📝</span> Rebalance Transaction & Trade Order Audit Log
+            </div>
+            <span class="badge">EXECUTION LEDGER</span>
+          </div>
+          <div class="card-body audit-container" id="rebalance-audit-log">
+            <!-- Dynamic Trade Logs -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= TAB 4: MODULE B: STRATEGIC STRESS TESTING ================= -->
+    <section class="tab-pane" id="tab-module-b">
+      <div class="module-banner">
+        <div>
+          <h2>MODULE B: Strategic Event-Driven Wholesale Banking Portfolio Stress Testing</h2>
+          <p>Simulates systemic macro shocks on a synthetic wholesale banking portfolio ($1.25B across Loans, Corporate Bonds, Sovereign Debt, Derivatives, and Mezzanine Facilities) when high-impact events are detected.</p>
+        </div>
+        <div class="banner-actions">
+          <button class="btn btn-danger" id="btn-trigger-stress">🚨 Execute Portfolio Stress Test</button>
+        </div>
+      </div>
+
+      <div class="grid-layout stress-grid">
+        
+        <!-- Shock Configuration & Trigger Controls -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="icon-indicator">⚙️</span> Event Shock Calibration
+            </div>
+            <span class="badge badge-amber">THRESHOLD: IMPACT &gt; 7.0</span>
+          </div>
+          <div class="card-body">
+            <div class="scenario-selector-group">
+              <label>Select Scenario Preset:</label>
+              <div class="scenario-buttons">
+                <button class="btn btn-sm scenario-btn active" data-scenario="Geopolitical">Geopolitical Conflict (Strait Blockade)</button>
+                <button class="btn btn-sm scenario-btn" data-scenario="Macroeconomic">Macro Rate Spike (+225 bps Yields)</button>
+                <button class="btn btn-sm scenario-btn" data-scenario="Credit Event">Credit Contagion ($1.4B CRE Default)</button>
+                <button class="btn btn-sm scenario-btn" data-scenario="Custom">Custom Shock Sliders</button>
+              </div>
+            </div>
+
+            <!-- Custom Sliders -->
+            <div class="sliders-container" id="stress-sliders">
+              <div class="slider-item">
+                <div class="slider-header">
+                  <span>Interest Rate Shift (bps):</span>
+                  <span id="val-rate-shift">+120 bps</span>
+                </div>
+                <input type="range" id="slider-rate" min="-100" max="400" step="10" value="120">
+              </div>
+
+              <div class="slider-item">
+                <div class="slider-header">
+                  <span>Credit Spread Widening (bps):</span>
+                  <span id="val-spread-widening">+180 bps</span>
+                </div>
+                <input type="range" id="slider-spread" min="0" max="500" step="10" value="180">
+              </div>
+
+              <div class="slider-item">
+                <div class="slider-header">
+                  <span>Equity / Collateral Value Haircut:</span>
+                  <span id="val-equity-drop">-15.0%</span>
+                </div>
+                <input type="range" id="slider-equity" min="0" max="40" step="1" value="15">
+              </div>
+
+              <div class="slider-item">
+                <div class="slider-header">
+                  <span>Loan Default Rate Surge:</span>
+                  <span id="val-default-rate">+3.5%</span>
+                </div>
+                <input type="range" id="slider-default" min="0" max="15" step="0.5" value="3.5">
+              </div>
+            </div>
+
+            <div class="impact-indicator-box">
+              <div class="box-title">Simulated Severity Level:</div>
+              <div class="box-metric text-amber" id="stress-severity-display">Impact Score: 8.8 / 10.0 (High Risk Event)</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Stress Impact Results & Waterfall -->
+        <div class="card card-stress-results">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="icon-indicator">🛡️</span> Stress Test Results & Regulatory Capital Impact
+            </div>
+            <span class="badge badge-red" id="stress-status-badge">STRESSED</span>
+          </div>
+          <div class="card-body">
+            
+            <div class="stress-kpi-grid">
+              <div class="kpi-box">
+                <div class="kpi-box-label">PRE-STRESS PORTFOLIO</div>
+                <div class="kpi-box-val text-cyan">$1,250.0M</div>
+                <div class="kpi-box-sub">Initial Par Value</div>
+              </div>
+
+              <div class="kpi-box">
+                <div class="kpi-box-label">POST-STRESS VALUE</div>
+                <div class="kpi-box-val text-red" id="stress-post-val">$1,138.4M</div>
+                <div class="kpi-box-sub">Mark-to-Market Valuation</div>
+              </div>
+
+              <div class="kpi-box">
+                <div class="kpi-box-label">ESTIMATED CAPITAL LOSS</div>
+                <div class="kpi-box-val text-red" id="stress-loss-val">-$111.6M</div>
+                <div class="kpi-box-sub" id="stress-loss-pct">Drawdown: -8.93%</div>
+              </div>
+
+              <div class="kpi-box">
+                <div class="kpi-box-label">CET1 CAPITAL RATIO</div>
+                <div class="kpi-box-val text-amber" id="stress-cet1-val">10.22%</div>
+                <div class="kpi-box-sub">Baseline: 13.50% (Basel III)</div>
+              </div>
+            </div>
+
+            <!-- Loss Waterfall Bar -->
+            <div class="waterfall-section">
+              <div class="waterfall-header">LOSS ATTRIBUTION BY ASSET CLASS:</div>
+              <div class="waterfall-bars" id="stress-waterfall-container">
+                <!-- Injected via JS -->
+              </div>
+            </div>
+
+            <!-- Risk Mitigation Guidance -->
+            <div class="mitigation-box" id="stress-mitigation-box">
+              <strong>Risk Recommendation:</strong> Recommend purchasing $60M 5-year SOFR receiver swaptions and increasing loan loss provisions on Commercial Real Estate tranche by $22M to insulate against secondary contagion.
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Wholesale Banking Asset Tranches Table -->
+        <div class="card full-width">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="icon-indicator">💼</span> Wholesale Banking Asset Inventory ($1.25B Portfolio Breakdown)
+            </div>
+            <span class="badge">10 WHOLESALE HOLDINGS</span>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="data-table" id="portfolio-table">
+                <thead>
+                  <tr>
+                    <th>Asset ID</th>
+                    <th>Holding Name</th>
+                    <th>Asset Class</th>
+                    <th>Par Value (USD)</th>
+                    <th>Rating</th>
+                    <th>Duration</th>
+                    <th>Stressed Loss</th>
+                    <th>Post-Stress Value</th>
+                    <th>Impairment %</th>
+                  </tr>
+                </thead>
+                <tbody id="portfolio-table-body">
+                  <!-- Injected via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= TAB 5: REST API & MACHINE READABLE SIGNALS ================= -->
+    <section class="tab-pane" id="tab-api">
+      <div class="grid-layout api-grid">
+        
+        <!-- API Documentation & Endpoints -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="icon-indicator">🔌</span> Machine-Readable REST API Endpoints
+            </div>
+            <span class="badge">OPENAPI / SWAGGER SPEC</span>
+          </div>
+          <div class="card-body">
+            <p class="section-desc">
+              The AI/NLP Risk Engine exposes high-throughput JSON endpoints for automated consumption by algorithmic rebalancers, OMS/EMS systems, and risk management pipelines.
+            </p>
+
+            <div class="endpoint-list">
+              <div class="endpoint-item">
+                <span class="method post">POST</span>
+                <span class="path">/api/v1/analyze</span>
+                <span class="desc">Ingests unstructured text & returns structured risk signal</span>
+              </div>
+              <div class="endpoint-item">
+                <span class="method post">POST</span>
+                <span class="path">/api/v1/rebalance</span>
+                <span class="desc">Module A: Executes tactical weight rebalancing</span>
+              </div>
+              <div class="endpoint-item">
+                <span class="method post">POST</span>
+                <span class="path">/api/v1/stress-test</span>
+                <span class="desc">Module B: Triggers wholesale portfolio macro stress simulation</span>
+              </div>
+              <div class="endpoint-item">
+                <span class="method get">GET</span>
+                <span class="path">/api/v1/signals</span>
+                <span class="desc">Audit stream of recent risk signals & impact scores</span>
+              </div>
+              <div class="endpoint-item">
+                <span class="method get">GET</span>
+                <span class="path">/api/v1/weights</span>
+                <span class="desc">Fetches active stock index portfolio weights</span>
+              </div>
+              <div class="endpoint-item">
+                <span class="method get">GET</span>
+                <span class="path">/api/v1/portfolio</span>
+                <span class="desc">Fetches full wholesale banking asset inventory</span>
+              </div>
+            </div>
+
+            <!-- Python Integration Snippet -->
+            <div class="code-container" style="margin-top: 1.5rem;">
+              <div class="code-header">SAMPLE PYTHON CLIENT (Downstream Subscription):</div>
+              <pre><code>import requests
+
+# Ingest and analyze financial news or social media text
+response = requests.post("http://localhost:8000/api/v1/analyze", json={
+    "text": "NVIDIA reveals next-gen ultra-dense AI datacenter chips...",
+    "source": "Financial News (Reuters / GDELT)"
+})
+risk_signal = response.json()["signal"]
+
+print(f"Sentiment: {risk_signal['sentiment_score']}")
+print(f"Event: {risk_signal['event_classification']}")
+print(f"Impact: {risk_signal['impact_score']}/10")
+
+# Auto-rebalance index if entity matches
+if response.json().get("rebalance_triggered"):
+    print("Module A dynamically rebalanced portfolio weights!")</code></pre>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Live Interactive API Console -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="icon-indicator">⚡</span> Live API Console & Payload Inspector
+            </div>
+            <button class="btn btn-sm btn-primary" id="btn-test-api">Send Test Request</button>
+          </div>
+          <div class="card-body">
+            <div class="console-box">
+              <div class="console-label">REQUEST PAYLOAD:</div>
+              <pre><code id="api-request-code">{
+  "text": "Federal Reserve unexpectedly signals hawkish posture as core PCE accelerates; 10Y yields spike 28bps.",
+  "source": "Financial News (Bloomberg)"
+}</code></pre>
+            </div>
+
+            <div class="console-box" style="margin-top: 1rem;">
+              <div class="console-label">RESPONSE (200 OK):</div>
+              <pre><code id="api-response-code">{
+  "status": "Ready. Click 'Send Test Request' to simulate."
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ================= 7-SLIDE PRESENTATION MODAL ================= -->
+  <div class="modal-backdrop" id="slides-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title-row">
+          <span class="slide-indicator" id="slide-num-indicator">SLIDE 1 OF 7</span>
+          <h3 id="slide-modal-title">Presentation Title</h3>
+        </div>
+        <button class="btn-close" id="btn-close-slides">&times;</button>
+      </div>
+
+      <div class="modal-body" id="slide-content-area">
+        <!-- Rendered by JS -->
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="btn-prev-slide">‹ Previous Slide</button>
+        <div class="slide-dots" id="slide-dots-container"></div>
+        <button class="btn btn-primary" id="btn-next-slide">Next Slide ›</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

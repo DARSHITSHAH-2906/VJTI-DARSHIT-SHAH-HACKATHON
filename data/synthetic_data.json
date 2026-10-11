@@ -1,0 +1,268 @@
+{
+  "stock_universe": [
+    { "ticker": "AAPL", "name": "Apple Inc.", "sector": "Technology", "base_price": 228.50, "base_weight": 0.12, "beta": 1.15 },
+    { "ticker": "MSFT", "name": "Microsoft Corp.", "sector": "Technology", "base_price": 420.20, "base_weight": 0.12, "beta": 1.10 },
+    { "ticker": "NVDA", "name": "NVIDIA Corp.", "sector": "Semiconductors", "base_price": 125.80, "base_weight": 0.11, "beta": 1.75 },
+    { "ticker": "AMZN", "name": "Amazon.com Inc.", "sector": "Consumer Discretionary", "base_price": 185.30, "base_weight": 0.10, "beta": 1.25 },
+    { "ticker": "GOOGL", "name": "Alphabet Inc.", "sector": "Communication", "base_price": 164.40, "base_weight": 0.10, "beta": 1.05 },
+    { "ticker": "META", "name": "Meta Platforms", "sector": "Communication", "base_price": 570.60, "base_weight": 0.09, "beta": 1.30 },
+    { "ticker": "TSLA", "name": "Tesla Inc.", "sector": "Automotive", "base_price": 240.10, "base_weight": 0.08, "beta": 2.10 },
+    { "ticker": "JPM", "name": "JPMorgan Chase", "sector": "Financials", "base_price": 215.70, "base_weight": 0.10, "beta": 0.95 },
+    { "ticker": "V", "name": "Visa Inc.", "sector": "Financials", "base_price": 278.40, "base_weight": 0.09, "beta": 0.85 },
+    { "ticker": "XOM", "name": "Exxon Mobil", "sector": "Energy", "base_price": 118.20, "base_weight": 0.09, "beta": 0.70 }
+  ],
+  "sample_feed_items": [
+    {
+      "id": "NEWS-001",
+      "source": "Financial News (Reuters / GDELT)",
+      "source_type": "news",
+      "timestamp": "2026-10-11T09:15:00Z",
+      "entity": "NVDA",
+      "company_name": "NVIDIA Corp.",
+      "text": "NVIDIA reveals next-gen ultra-dense AI datacenter chips with 4x computational throughput; major hyperscalers sign multi-billion dollar pre-orders amidst insatiable enterprise demand.",
+      "ground_truth": {
+        "sentiment": 0.88,
+        "event": "Product Launch",
+        "impact": 8.5
+      }
+    },
+    {
+      "id": "TWEET-001",
+      "source": "Twitter/X Financial Stream",
+      "source_type": "social",
+      "timestamp": "2026-10-11T09:18:22Z",
+      "entity": "NVDA",
+      "company_name": "NVIDIA Corp.",
+      "text": "$NVDA absolute moonshot announcement today. Order book completely locked up through next fiscal year. Institutional accumulation ramping hard 🔥🚀",
+      "ground_truth": {
+        "sentiment": 0.92,
+        "event": "Product Launch",
+        "impact": 7.0
+      }
+    },
+    {
+      "id": "NEWS-002",
+      "source": "Financial News (Bloomberg)",
+      "source_type": "news",
+      "timestamp": "2026-10-11T09:30:10Z",
+      "entity": "GLOBAL_MACRO",
+      "company_name": "Federal Reserve & Global Central Banks",
+      "text": "Federal Reserve unexpectedly signals prolonged hawkish posture as core PCE inflation accelerates; 10-year Treasury yields spike 28 basis points to multi-year highs.",
+      "ground_truth": {
+        "sentiment": -0.74,
+        "event": "Macroeconomic",
+        "impact": 9.2
+      }
+    },
+    {
+      "id": "TWEET-002",
+      "source": "Twitter/X Financial Stream",
+      "source_type": "social",
+      "timestamp": "2026-10-11T09:35:45Z",
+      "entity": "TSLA",
+      "company_name": "Tesla Inc.",
+      "text": "$TSLA deliveries miss consensus by 8% in Asian markets amid intense EV price competition and factory retooling delays. Margins likely under severe compression.",
+      "ground_truth": {
+        "sentiment": -0.81,
+        "event": "Earnings & Guidance",
+        "impact": 7.8
+      }
+    },
+    {
+      "id": "NEWS-003",
+      "source": "Financial News (Financial Times)",
+      "source_type": "news",
+      "timestamp": "2026-10-11T09:42:00Z",
+      "entity": "JPM",
+      "company_name": "JPMorgan Chase",
+      "text": "Major European commercial real estate syndication defaults on $1.4B credit facility; tier-1 wholesale lenders initiate emergency provisioning for potential contagion losses.",
+      "ground_truth": {
+        "sentiment": -0.85,
+        "event": "Credit Event",
+        "impact": 8.9
+      }
+    },
+    {
+      "id": "NEWS-004",
+      "source": "Financial News (WSJ / GDELT)",
+      "source_type": "news",
+      "timestamp": "2026-10-11T10:05:00Z",
+      "entity": "GLOBAL_GEO",
+      "company_name": "Global Energy & Shipping",
+      "text": "Naval blockade escalation in key maritime strait halts 18% of global crude tanker transits; Brent crude surges 9.5% intraday amidst immediate supply disruption threats.",
+      "ground_truth": {
+        "sentiment": -0.78,
+        "event": "Geopolitical",
+        "impact": 9.5
+      }
+    },
+    {
+      "id": "TWEET-003",
+      "source": "Twitter/X Financial Stream",
+      "source_type": "social",
+      "timestamp": "2026-10-11T10:12:15Z",
+      "entity": "AAPL",
+      "company_name": "Apple Inc.",
+      "text": "$AAPL Department of Justice antitrust remedies could force dismantling of exclusive app store billing agreements and default search partnership rev-share. Legal headwind is real.",
+      "ground_truth": {
+        "sentiment": -0.65,
+        "event": "Regulatory Action",
+        "impact": 7.4
+      }
+    },
+    {
+      "id": "NEWS-005",
+      "source": "Financial News (CNBC)",
+      "source_type": "news",
+      "timestamp": "2026-10-11T10:25:30Z",
+      "entity": "MSFT",
+      "company_name": "Microsoft Corp.",
+      "text": "Microsoft secures landmark multi-jurisdiction regulatory clearance for sovereign AI cloud contracts with enterprise backlogs expanding by 34% year-over-year.",
+      "ground_truth": {
+        "sentiment": 0.82,
+        "event": "Regulatory Action",
+        "impact": 6.8
+      }
+    },
+    {
+      "id": "TWEET-004",
+      "source": "Twitter/X Financial Stream",
+      "source_type": "social",
+      "timestamp": "2026-10-11T10:33:00Z",
+      "entity": "AMZN",
+      "company_name": "Amazon.com Inc.",
+      "text": "$AMZN AWS accelerating custom silicon adoption with Trainium3; gross cloud margins expected to expand 300bps next quarter. Enterprise migrations picking up speed.",
+      "ground_truth": {
+        "sentiment": 0.76,
+        "event": "Product Launch",
+        "impact": 6.2
+      }
+    },
+    {
+      "id": "NEWS-006",
+      "source": "Financial News (Dow Jones)",
+      "source_type": "news",
+      "timestamp": "2026-10-11T10:48:10Z",
+      "entity": "XOM",
+      "company_name": "Exxon Mobil",
+      "text": "Exxon Mobil finalizes strategic mega-merger acquisition in deepwater offshore assets, boosting free cash flow projections by $4.5B annually starting next year.",
+      "ground_truth": {
+        "sentiment": 0.79,
+        "event": "Merger/Acquisition",
+        "impact": 7.1
+      }
+    }
+  ],
+  "wholesale_banking_portfolio": [
+    {
+      "asset_id": "LN-CORP-101",
+      "name": "Syndicated Senior Term Loan - Apex Industrial Group",
+      "asset_type": "Commercial Loan",
+      "par_value_usd": 150000000,
+      "rating": "BBB+",
+      "duration_yrs": 4.2,
+      "coupon_pct": 6.85,
+      "sector": "Industrial",
+      "collateral": "First Lien Fixed & Floating Assets"
+    },
+    {
+      "asset_id": "LN-CRE-102",
+      "name": "Commercial Real Estate Facility - Metro Plaza Trust",
+      "asset_type": "Commercial Loan",
+      "par_value_usd": 120000000,
+      "rating": "BB",
+      "duration_yrs": 3.8,
+      "coupon_pct": 7.90,
+      "sector": "Real Estate",
+      "collateral": "Prime Urban Commercial Office Complex"
+    },
+    {
+      "asset_id": "LN-TECH-103",
+      "name": "Revolving Credit Line - Silicon Cloud Infrastructure",
+      "asset_type": "Commercial Loan",
+      "par_value_usd": 130000000,
+      "rating": "A-",
+      "duration_yrs": 2.5,
+      "coupon_pct": 5.95,
+      "sector": "Technology",
+      "collateral": "Receivables & Enterprise Cloud IP"
+    },
+    {
+      "asset_id": "BND-IG-201",
+      "name": "Investment Grade Corporate Bond - Global Logistics Corp",
+      "asset_type": "Corporate Bond",
+      "par_value_usd": 200000000,
+      "rating": "A+",
+      "duration_yrs": 6.5,
+      "coupon_pct": 5.20,
+      "sector": "Logistics & Transport",
+      "collateral": "Senior Unsecured"
+    },
+    {
+      "asset_id": "BND-HY-202",
+      "name": "High Yield Bond - Vanguard Telecom Services",
+      "asset_type": "Corporate Bond",
+      "par_value_usd": 150000000,
+      "rating": "B+",
+      "duration_yrs": 5.1,
+      "coupon_pct": 8.75,
+      "sector": "Telecommunications",
+      "collateral": "Senior Subordinated"
+    },
+    {
+      "asset_id": "SOV-TRS-301",
+      "name": "US 10-Year Benchmark Treasury Notes",
+      "asset_type": "Sovereign Bond",
+      "par_value_usd": 150000000,
+      "rating": "AAA",
+      "duration_yrs": 8.2,
+      "coupon_pct": 4.10,
+      "sector": "Sovereign Debt",
+      "collateral": "Full Faith and Credit of US Government"
+    },
+    {
+      "asset_id": "SOV-MUN-302",
+      "name": "European Sovereign Gilt & Bund Portfolio",
+      "asset_type": "Sovereign Bond",
+      "par_value_usd": 100000000,
+      "rating": "AAA",
+      "duration_yrs": 7.4,
+      "coupon_pct": 3.45,
+      "sector": "Sovereign Debt",
+      "collateral": "Eurozone Sovereign Guarantee"
+    },
+    {
+      "asset_id": "SWP-IRS-401",
+      "name": "Interest Rate Swaps (Payer 5Y SOFR vs Fixed 3.95%)",
+      "asset_type": "Derivatives",
+      "par_value_usd": 90000000,
+      "rating": "AA-",
+      "duration_yrs": 4.8,
+      "coupon_pct": 3.95,
+      "sector": "Financial Hedging",
+      "collateral": "ISDA Two-Way CSA Cash Margin"
+    },
+    {
+      "asset_id": "SWP-CDS-402",
+      "name": "Credit Default Swap Basket (CDX North America IG)",
+      "asset_type": "Derivatives",
+      "par_value_usd": 60000000,
+      "rating": "A",
+      "duration_yrs": 3.0,
+      "coupon_pct": 1.15,
+      "sector": "Credit Derivative",
+      "collateral": "Variation Margin Cleared via LCH"
+    },
+    {
+      "asset_id": "EQ-FAC-501",
+      "name": "Mezzanine Structured Equity & Convertible Notes",
+      "asset_type": "Wholesale Equity",
+      "par_value_usd": 100000000,
+      "rating": "BBB-",
+      "duration_yrs": 3.5,
+      "coupon_pct": 9.20,
+      "sector": "Diversified Corporate",
+      "collateral": "Second Lien / Equity Warrants"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+[
+  {
+    "id": "NEWS-001",
+    "source": "Financial News (Reuters / GDELT)",
+    "timestamp": "2026-10-11T09:15:00Z",
+    "entity": "NVDA",
+    "company_name": "NVIDIA Corp.",
+    "headline": "NVIDIA reveals next-gen ultra-dense AI datacenter chips with 4x computational throughput; major hyperscalers sign multi-billion dollar pre-orders amidst insatiable enterprise demand.",
+    "sentiment_ground_truth": 0.88,
+    "event_type": "Product Launch",
+    "impact_severity": 8.5
+  },
+  {
+    "id": "NEWS-002",
+    "source": "Financial News (Bloomberg)",
+    "timestamp": "2026-10-11T09:30:10Z",
+    "entity": "GLOBAL_MACRO",
+    "company_name": "Federal Reserve & Global Central Banks",
+    "headline": "Federal Reserve unexpectedly signals prolonged hawkish posture as core PCE inflation accelerates; 10-year Treasury yields spike 28 basis points to multi-year highs.",
+    "sentiment_ground_truth": -0.74,
+    "event_type": "Macroeconomic",
+    "impact_severity": 9.2
+  },
+  {
+    "id": "NEWS-003",
+    "source": "Financial News (Financial Times)",
+    "timestamp": "2026-10-11T09:42:00Z",
+    "entity": "JPM",
+    "company_name": "JPMorgan Chase",
+    "headline": "Major European commercial real estate syndication defaults on $1.4B credit facility; tier-1 wholesale lenders initiate emergency provisioning for potential contagion losses.",
+    "sentiment_ground_truth": -0.85,
+    "event_type": "Credit Event",
+    "impact_severity": 8.9
+  },
+  {
+    "id": "NEWS-004",
+    "source": "Financial News (WSJ / GDELT)",
+    "timestamp": "2026-10-11T10:05:00Z",
+    "entity": "GLOBAL_GEO",
+    "company_name": "Global Energy & Shipping",
+    "headline": "Naval blockade escalation in key maritime strait halts 18% of global crude tanker transits; Brent crude surges 9.5% intraday amidst immediate supply disruption threats.",
+    "sentiment_ground_truth": -0.78,
+    "event_type": "Geopolitical",
+    "impact_severity": 9.5
+  },
+  {
+    "id": "NEWS-005",
+    "source": "Financial News (CNBC)",
+    "timestamp": "2026-10-11T10:25:30Z",
+    "entity": "MSFT",
+    "company_name": "Microsoft Corp.",
+    "headline": "Microsoft secures landmark multi-jurisdiction regulatory clearance for sovereign AI cloud contracts with enterprise backlogs expanding by 34% year-over-year.",
+    "sentiment_ground_truth": 0.82,
+    "event_type": "Regulatory Action",
+    "impact_severity": 6.8
+  },
+  {
+    "id": "NEWS-006",
+    "source": "Financial News (Dow Jones)",
+    "timestamp": "2026-10-11T10:48:10Z",
+    "entity": "XOM",
+    "company_name": "Exxon Mobil",
+    "headline": "Exxon Mobil finalizes strategic mega-merger acquisition in deepwater offshore assets, boosting free cash flow projections by $4.5B annually starting next year.",
+    "sentiment_ground_truth": 0.79,
+    "event_type": "Merger/Acquisition",
+    "impact_severity": 7.1
+  }
+]

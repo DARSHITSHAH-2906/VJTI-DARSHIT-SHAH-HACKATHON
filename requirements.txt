@@ -1,0 +1,7 @@
+# FINRISK-AI Python Engine Dependencies
+# Core engine runs with 0 external dependencies (Python 3.8+ standard library)
+# Optional libraries for extended live market data & enhanced NLP:
+requests>=2.28.0
+yfinance>=0.2.36
+numpy>=1.24.0
+pandas>=2.0.0

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "TWEET-001",
+    "source": "Twitter/X Financial Stream",
+    "timestamp": "2026-10-11T09:18:22Z",
+    "cashtag": "$NVDA",
+    "entity": "NVDA",
+    "company_name": "NVIDIA Corp.",
+    "tweet_text": "$NVDA absolute moonshot announcement today. Order book completely locked up through next fiscal year. Institutional accumulation ramping hard 🔥🚀",
+    "sentiment_ground_truth": 0.92,
+    "event_type": "Product Launch",
+    "impact_severity": 7.0
+  },
+  {
+    "id": "TWEET-002",
+    "source": "Twitter/X Financial Stream",
+    "timestamp": "2026-10-11T09:35:45Z",
+    "cashtag": "$TSLA",
+    "entity": "TSLA",
+    "company_name": "Tesla Inc.",
+    "tweet_text": "$TSLA deliveries miss consensus by 8% in Asian markets amid intense EV price competition and factory retooling delays. Margins likely under severe compression.",
+    "sentiment_ground_truth": -0.81,
+    "event_type": "Earnings & Guidance",
+    "impact_severity": 7.8
+  },
+  {
+    "id": "TWEET-003",
+    "source": "Twitter/X Financial Stream",
+    "timestamp": "2026-10-11T10:12:15Z",
+    "cashtag": "$AAPL",
+    "entity": "AAPL",
+    "company_name": "Apple Inc.",
+    "tweet_text": "$AAPL Department of Justice antitrust remedies could force dismantling of exclusive app store billing agreements and default search partnership rev-share. Legal headwind is real.",
+    "sentiment_ground_truth": -0.65,
+    "event_type": "Regulatory Action",
+    "impact_severity": 7.4
+  },
+  {
+    "id": "TWEET-004",
+    "source": "Twitter/X Financial Stream",
+    "timestamp": "2026-10-11T10:33:00Z",
+    "cashtag": "$AMZN",
+    "entity": "AMZN",
+    "company_name": "Amazon.com Inc.",
+    "tweet_text": "$AMZN AWS accelerating custom silicon adoption with Trainium3; gross cloud margins expected to expand 300bps next quarter. Enterprise migrations picking up speed.",
+    "sentiment_ground_truth": 0.76,
+    "event_type": "Product Launch",
+    "impact_severity": 6.2
+  }
+]

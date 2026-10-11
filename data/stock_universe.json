@@ -1,0 +1,12 @@
+[
+  { "ticker": "AAPL", "name": "Apple Inc.", "sector": "Technology", "base_price": 228.50, "base_weight": 0.12, "beta": 1.15 },
+  { "ticker": "MSFT", "name": "Microsoft Corp.", "sector": "Technology", "base_price": 420.20, "base_weight": 0.12, "beta": 1.10 },
+  { "ticker": "NVDA", "name": "NVIDIA Corp.", "sector": "Semiconductors", "base_price": 125.80, "base_weight": 0.11, "beta": 1.75 },
+  { "ticker": "AMZN", "name": "Amazon.com Inc.", "sector": "Consumer Discretionary", "base_price": 185.30, "base_weight": 0.10, "beta": 1.25 },
+  { "ticker": "GOOGL", "name": "Alphabet Inc.", "sector": "Communication", "base_price": 164.40, "base_weight": 0.10, "beta": 1.05 },
+  { "ticker": "META", "name": "Meta Platforms", "sector": "Communication", "base_price": 570.60, "base_weight": 0.09, "beta": 1.30 },
+  { "ticker": "TSLA", "name": "Tesla Inc.", "sector": "Automotive", "base_price": 240.10, "base_weight": 0.08, "beta": 2.10 },
+  { "ticker": "JPM", "name": "JPMorgan Chase", "sector": "Financials", "base_price": 215.70, "base_weight": 0.10, "beta": 0.95 },
+  { "ticker": "V", "name": "Visa Inc.", "sector": "Financials", "base_price": 278.40, "base_weight": 0.09, "beta": 0.85 },
+  { "ticker": "XOM", "name": "Exxon Mobil", "sector": "Energy", "base_price": 118.20, "base_weight": 0.09, "beta": 0.70 }
+]
